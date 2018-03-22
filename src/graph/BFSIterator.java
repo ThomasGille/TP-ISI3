@@ -5,7 +5,6 @@ import java.util.*;
 // parcours en largeur
 public class BFSIterator implements Iterator{
 
-    Node currentNode = null;
     private IGraph graph;
     ArrayList<Node> alreadySeenNode = new ArrayList<>();
     LinkedList<Node> file = new LinkedList<>();
@@ -18,25 +17,30 @@ public class BFSIterator implements Iterator{
 
     @Override
     public boolean hasNext() {
-        for (Node friend : graph.getAdjNodes(file.peekFirst())) {
-            if (!isAlreadyDone(friend)) {
-                return true;
-            }
-        }
-        return false;
+        return !file.isEmpty();
     }
 
     @Override
     public Object next() {
-        return false;
+        addNeighboursNodes(); // neighbours in file
+        return file.pop(); // return first element
     }
 
     private boolean isAlreadyDone(Node n) {
         for (Node tmp : alreadySeenNode) {
-            if (tmp == n) {
+            if (tmp.getID() == n.getID()) {
                 return true;
             }
         }
         return false;
+    }
+
+    private void addNeighboursNodes() {
+        for (Node friend : graph.getAdjNodes(file.peekFirst())) {
+            if (!isAlreadyDone(friend)) {
+                file.addLast(friend);
+                alreadySeenNode.add(friend);
+            }
+        }
     }
 }

@@ -1,4 +1,4 @@
- /* package test;
+package test;
 
 import java.util.Iterator;
 
@@ -42,10 +42,11 @@ public class testSearch {
 		while (iterdgBGS.hasNext())
 			System.out.println(iterdgBGS.next());
 
-		Iterator<Node> iterdgDFS= dg.creerDFSIterator(na);
+		/* Iterator<Node> iterdgDFS= dg.creerDFSIterator(na);
 		System.out.println("Wiki dfs:");
 		while (iterdgDFS.hasNext())
 			System.out.println(iterdgDFS.next());
+			*/
 
 		//exemple graph non oriente
 		System.out.println("Graph non oriente");
@@ -67,10 +68,11 @@ public class testSearch {
 		while (iterugBFS.hasNext())
 			System.out.println(iterugBFS.next());
 
-		Iterator<Node> iterugDFS= ug.creerDFSIterator(na);
+		/* Iterator<Node> iterugDFS= ug.creerDFSIterator(na);
 		System.out.println("dfs:");
 		while (iterugDFS.hasNext())
 			System.out.println(iterugDFS.next());
+
+        */
 	}
 }
-*/
