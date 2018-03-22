@@ -1,11 +1,6 @@
 package graph;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-
+import java.util.*;
 
 
 public class Graph implements IDirectedGraph {
@@ -50,11 +45,9 @@ public class Graph implements IDirectedGraph {
 	}
 	
 	public List<Node> getAllNodes(){
-		//A COMPLETER
 		return new ArrayList<Node>(adjacence.keySet());
 	}
 	public int getNbNodes(){
-		//A COMPLETER
 		return getAllNodes().size();
 	}
 	
@@ -71,15 +64,18 @@ public class Graph implements IDirectedGraph {
 	 * renvoie tous les noeuds qui sont destination d'un arc dont la source est _n
 	 */
 	public List<Node> getAdjNodes(Node _n){
-		//A COMPLETER
 		ArrayList<Node> list = new ArrayList<>();
 		for (Arc a: adjacence.get(_n)) {
 			list.add(a.getDestination());
 		}
 		return list;
 	}
-	
-	
+
+	@Override
+	public Iterator<Node> creerBFSIterator(Node n) {
+		return new BFSIterator();
+	}
+
 
 	@Override
 	public String toString() {
