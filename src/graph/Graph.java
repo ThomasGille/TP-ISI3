@@ -86,14 +86,13 @@ public class Graph implements IDirectedGraph {
 		String s="Graph \n";
 		//A COMPLETER
 		for ( Node currentNode : adjacence.keySet() ) {
-			System.out.println( currentNode );
 			s += "[node=" + currentNode + " : [";
 			boolean notFirst = false;
 			for (Arc a : adjacence.get(currentNode)) {
-				s+= a.getSource() + " => " + a.getDestination() + "(" + a.getValuation() + ")";
 				if(notFirst) {
 					s += ", ";
 				}
+				s+= a.getSource() + " => " + a.getDestination() + "(" + a.getValuation() + ")";
 				notFirst = true;
 			}
 			s+= "]\n";
