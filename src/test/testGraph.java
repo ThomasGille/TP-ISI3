@@ -1,13 +1,6 @@
 package test;
 
-import graph.Arc;
-import graph.DoubleLabel;
-import graph.Graph;
-import graph.IDirectedGraph;
-import graph.IUndirectedGraph;
-import graph.IntegerLabel;
-import graph.Node;
-import graph.StringLabel;
+import graph.*;
 
 public class testGraph {
 
@@ -30,7 +23,15 @@ public class testGraph {
 		System.out.println(g.hasArc(n1, n2)+" "+g.hasArc(n2, n4));
 		System.out.println(g.getAdjNodes(n3));
 		System.out.println(g.getArc(n2));
-		
+
+
+		System.out.println("\nUndirected Graph : \n");
+		IUndirectedGraph ug = new UndirectedGraph();
+		ug.addNode(n1);ug.addNode(n2);ug.addNode(n3);ug.addNode(n4);
+		ug.addEdge(n1,n2);ug.addEdge(n2,n3);ug.addEdge(n1,n3);
+		System.out.println(ug);
+		System.out.println(ug.hasEdge(n1, n2)+" "+ug.hasEdge(n2, n4));
+		System.out.println(ug.getAdjNodes(n3));
 		
 		
 		
